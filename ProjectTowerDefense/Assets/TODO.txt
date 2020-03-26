@@ -1,0 +1,27 @@
+TODO
+- Building Selection
+- NPC Spawning with ECS
+- Game States 
+- Object States: NPC, Buildings .. (State Pattern?)
+- Building Placement /w TileData changes
+
+- Sounds
+- Icons
+- 3D Assets
+
+Issues
+
+
+
+March, 25.
+- Random Texture Generation in MapTiles
+- Simple Icons for UI
+- UI Timer/WaveCounter
+
+
+TO March, 24.
+- Map Generation
+- Simple UI
+- First Builder with Selector
+- Resources 
+- Setup Collab
