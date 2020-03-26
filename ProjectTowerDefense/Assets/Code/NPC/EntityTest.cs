@@ -3,18 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
-public class EntityTest : MonoBehaviour
+[GenerateAuthoringComponent]
+public struct EntityTest : IComponentData
 {
     public Entity entity;
-
-    void Start()
-    {
-        EntityManager eManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        //eManager
-    }
-
-    private void CreateEntities()
-    {
-
-    }
+    public int spawnNumber;
 }
