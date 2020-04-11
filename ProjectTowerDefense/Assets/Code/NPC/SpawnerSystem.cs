@@ -33,7 +33,7 @@ public class SpawnerSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
-        Debug.Log("Do Job");
+        //Debug.Log("Do Job");
     }
 
 }

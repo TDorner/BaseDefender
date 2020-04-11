@@ -3,6 +3,7 @@
     using UnityEngine;
     using Input;
     using Player;
+    using Map;
 
     public class BuildingPlacement : MonoBehaviour
     {
@@ -10,6 +11,7 @@
         PlayerHandler playerHandler;
         BuildingSelector buildingSelector;
         MouseInput mouseInput;
+        TileMapData tileMapData;
 
         GameObject buildingHolderObject;
 
@@ -20,18 +22,16 @@
             buildingSelector = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingSelector>();
             mouseInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<MouseInput>();
             resManager = playerHandler.resourceManager;
+            tileMapData = GameObject.FindGameObjectWithTag("TileMap").GetComponent<CreateTileMap>().TMData;
         }
 
         private void SetBuilding()
         {
-
             Transform trans = buildingSelector.selectedPrefab.transform;
             trans.position = new Vector3(mouseInput.selectedTile.x, 0, mouseInput.selectedTile.z);
 
             GameObject gameO = Instantiate(buildingSelector.selectedPrefab, trans.position, Quaternion.identity, buildingHolderObject.transform);
             gameO.name = "Building: " + mouseInput.selectedTile.x + "|" + mouseInput.selectedTile.z;
-            
-
         }
 
         public bool CheckForCosts()
@@ -44,7 +44,9 @@
             // TODO Change for different building types
             BaseBuilding building = buildingSelector.selectedPrefab.GetComponentInChildren<BaseBuilding>();
 
-            if ((resGold.count - building.buildCostGold) >= 0 && (resWood.count - building.buildCostWood) >= 0 && (resMeat.count - building.buildCostMeat) >= 0)
+            if (resGold.CheckResourceCount(building.buildCostGold) && 
+                resWood.CheckResourceCount(building.buildCostWood) && 
+                resMeat.CheckResourceCount(building.buildCostMeat))
             {
                 return true;
             }

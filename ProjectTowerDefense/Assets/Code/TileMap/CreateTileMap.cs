@@ -26,7 +26,7 @@ namespace Map
 
         [Header("Other")]
         private TileMapGraphics TMGraphics;
-        private TileMapData TMData;
+        public TileMapData TMData;
         private TileMapTexture TMTexture;
 
         private Mesh mesh;

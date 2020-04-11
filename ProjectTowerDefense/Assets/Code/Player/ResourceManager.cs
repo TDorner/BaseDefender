@@ -96,5 +96,16 @@
         {
             return this.resType;
         }
+        public bool CheckResourceCount(int _count)
+        {
+            if ((this.count - _count) >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
