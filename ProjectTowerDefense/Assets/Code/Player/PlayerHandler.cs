@@ -6,7 +6,6 @@ namespace Player
     {
         public ResourceManager resourceManager;
 
-
         private void Awake()
         {
             resourceManager = new ResourceManager();

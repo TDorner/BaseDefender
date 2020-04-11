@@ -1,107 +1,78 @@
-﻿using UnityEngine;
-using Map;
-using Player;
-
-using Buildings;
-
-public class MouseInput : MonoBehaviour
+﻿namespace Input
 {
-    GameObject tileMap;
-    CreateTileMap createTileMap;
-    GameObject buildingHolderObject;
-    PlayerHandler playerHandler;
-    ResourceManager resManager;
-
-    Vector3 currentTileCoord;
-    public Transform selectionCube;
-
-    public Vector3 selectedTile;
-    public GameObject testBuildingObject;
-
-    void Start()
+    using UnityEngine;
+    using UnityEngine.EventSystems;
+    using Map;
+    using Building.Placement;
+    public class MouseInput : MonoBehaviour
     {
-        tileMap = GameObject.FindGameObjectWithTag("TileMap");
-        createTileMap = tileMap.GetComponent<CreateTileMap>();
-        buildingHolderObject = GameObject.FindGameObjectWithTag("BuildingHolder");
-        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
-        resManager = playerHandler.resourceManager;
-    }
+        GameObject tileMap;
+        CreateTileMap createTileMap;
+        BuildingPlacement buildingPlacement;
+        BuildingSelector buildingSelector;
 
-    void Update()
-    {
-        CheckMousePosition();
-    }
+        Vector3 currentTileCoord;
+        public Transform selectionCube;
 
-    private void CheckMousePosition()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        public Vector3 selectedTile;
 
-        // HIT MAP
-        if (tileMap.GetComponent<Collider>().Raycast(ray, out hitInfo, Mathf.Infinity))
+        void Start()
         {
-            selectionCube.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+            tileMap = GameObject.FindGameObjectWithTag("TileMap");
+            createTileMap = tileMap.GetComponent<CreateTileMap>();
+            buildingPlacement = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingPlacement>();
+            buildingSelector = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingSelector>();
+        }
 
-            int x = Mathf.FloorToInt(hitInfo.point.x / createTileMap.tileSize);
-            int z = Mathf.FloorToInt(hitInfo.point.z / createTileMap.tileSize);
-            currentTileCoord.x = x;
-            currentTileCoord.z = z;
+        void Update()
+        {
+            CheckMousePosition();
 
-            selectionCube.transform.position = currentTileCoord;
-
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-                selectedTile.x = x;
-                selectedTile.z = z;
-                Debug.Log("Tile: " + x + ", " + z);
+                RemoveSelected();
+            }
+        }
 
-                if (CheckForCosts())
+        private void CheckMousePosition()
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            // HIT MAP
+            if (tileMap.GetComponent<Collider>().Raycast(ray, out hitInfo, Mathf.Infinity))
+            {
+                selectionCube.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+
+                int x = Mathf.FloorToInt(hitInfo.point.x / createTileMap.tileSize);
+                int z = Mathf.FloorToInt(hitInfo.point.z / createTileMap.tileSize);
+                currentTileCoord.x = x;
+                currentTileCoord.z = z;
+
+                selectionCube.transform.position = currentTileCoord;
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    SetBuilding();
-                    Debug.Log("enough Resources");
+                    selectedTile.x = x;
+                    selectedTile.z = z;
+                    Debug.Log("Tile: " + x + ", " + z);
 
+                    buildingPlacement.PlaceBuilding();
                 }
                 else
                 {
-                    Debug.Log("Not enough Resources");
+                    selectionCube.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
                 }
             }
         }
-        else
+
+        private void RemoveSelected()
         {
-            selectionCube.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+            buildingSelector.RemoveSelectedPrefab();
         }
-    }
 
 
-    private void SetBuilding()
-    {
-
-        Transform trans = testBuildingObject.transform;
-        trans.position = new Vector3(selectedTile.x, 0, selectedTile.z);
-
-        GameObject gameO = Instantiate(testBuildingObject, trans.position, Quaternion.identity, buildingHolderObject.transform);
-        gameO.name = "Tower: " + selectedTile.x + "|" + selectedTile.z;
-
-    }
-
-    private bool CheckForCosts()
-    {
-        Resource resGold = resManager.goldResource;
-        Resource resWood = resManager.woodResource;
-        Resource resMeat = resManager.meatResource;
-
-
-        // TODO Change for dieffernt building types
-        Tower tower = testBuildingObject.GetComponentInChildren<Tower>();
-
-        if ((resGold.count - tower.buildCostGold) >= 0 && (resWood.count - tower.buildCostWood) >= 0 && (resMeat.count - tower.buildCostMeat) >= 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

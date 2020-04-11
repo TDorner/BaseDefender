@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2133037468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133037469}
+  - component: {fileID: 2133037471}
+  - component: {fileID: 2133037470}
+  m_Layer: 0
+  m_Name: BuildingManager
+  m_TagString: BuildingManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133037469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133037468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5190261069266150066}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133037471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133037468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e014f36f9beebe499a7a35b36446566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2133037470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133037468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4505e29d9e58444ba876e2d9b510ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedPrefab: {fileID: 5717451822056936105, guid: ed5f883e44a1d9e4682f7001ca9b7246,
+    type: 3}
 --- !u!1 &1124450126549866044
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +499,7 @@ Transform:
   - {fileID: 1124450126549866045}
   - {fileID: 1124450127491808324}
   - {fileID: 2462796189348002674}
+  - {fileID: 2133037469}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -470,8 +529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectionCube: {fileID: 0}
   selectedTile: {x: 0, y: 0, z: 0}
-  testBuildingObject: {fileID: 3670823918846368899, guid: b33cd239ea2b7884593749361bee09c3,
-    type: 3}
 --- !u!114 &1240694062266675704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,12 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710d8951d696a5c4a9dc88684e3888b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 1267581446294337999}
-  wave: {fileID: 8027796133550704587}
-  waveCounter: 0
-  timePerWave: 20
-  startTime: 20
-  waveTime: 0
 --- !u!1 &2173925326086161924
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,8 +552,6 @@ GameObject:
   - component: {fileID: 3779607866552215240}
   - component: {fileID: 1179589123106565479}
   - component: {fileID: 7898629557413810534}
-  - component: {fileID: 7992751891706621549}
-  - component: {fileID: 1897744616}
   m_Layer: 5
   m_Name: HQSelectorImage
   m_TagString: Untagged
@@ -565,47 +614,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7992751891706621549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2173925326086161924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44d19a1919779143987fbdfd6734b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 5717451822056936105, guid: ed5f883e44a1d9e4682f7001ca9b7246, type: 3}
---- !u!114 &1897744616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2173925326086161924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7992751891706621549}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2811643640772518672
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,8 +701,6 @@ GameObject:
   - component: {fileID: 443239702470722474}
   - component: {fileID: 4036292466719426101}
   - component: {fileID: 3698015961175735167}
-  - component: {fileID: 7954913455390810733}
-  - component: {fileID: 1781288456127171594}
   m_Layer: 5
   m_Name: TowerSelectorImage
   m_TagString: Untagged
@@ -757,47 +763,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7954913455390810733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730787431578332461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44d19a1919779143987fbdfd6734b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 3670823918846368899, guid: b33cd239ea2b7884593749361bee09c3, type: 3}
---- !u!114 &1781288456127171594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730787431578332461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7954913455390810733}
-          m_MethodName: OnUIClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &4094505590245540827
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,16 +853,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094505590245540827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1 &4300903817668004659
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,8 +874,6 @@ GameObject:
   - component: {fileID: 4211645442159608948}
   - component: {fileID: 7472500044326914149}
   - component: {fileID: 3081991467038420321}
-  - component: {fileID: 570879321425094957}
-  - component: {fileID: 2367254774506390}
   m_Layer: 5
   m_Name: LumberSelectorImage
   m_TagString: Untagged
@@ -973,47 +936,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &570879321425094957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4300903817668004659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44d19a1919779143987fbdfd6734b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 3670823918846368899, guid: b33cd239ea2b7884593749361bee09c3, type: 3}
---- !u!114 &2367254774506390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4300903817668004659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 570879321425094957}
-          m_MethodName: OnUIClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &4569572895156362880
 GameObject:
   m_ObjectHideFlags: 0

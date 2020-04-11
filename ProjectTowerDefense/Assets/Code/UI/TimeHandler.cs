@@ -3,52 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeHandler : MonoBehaviour
+namespace UI
 {
-    public Text timer;
-    public Text wave;
-
-    public int waveCounter;
-    public int timePerWave;
-    public int startTime;
-
-    public float waveTime;
-
-    void Start()
+    public class TimeHandler : MonoBehaviour
     {
-        TickUpWaveCounter();
-    }
+        public static Text timer;
+        public static Text wave;
 
-    void Update()
-    {
-        TimerTick();
-    }
+        public static int waveCounter;
+        public static int timePerWave;
+        public static int startTime;
 
-    public void TickUpWaveCounter()
-    {
-        waveCounter++;
-        wave.text = "Wave " + waveCounter;
-        SetTimer();
-    }
+        public static float waveTime;
 
-    public void SetTimer()
-    {
-        waveTime = 0;
-        waveTime = startTime + (waveCounter * timePerWave) + 0.2f;
-        timer.text = "" + (int)waveTime;
-    }
+        public static bool timerStarted = false;
 
-    private void TimerTick()
-    {
-        if (waveTime <= 0)
+        void Update()
         {
-            TickUpWaveCounter();
+            if (timerStarted)
+            {
+                TimerTick();
+            }
         }
-        else
+
+        private static void TickUpWaveCounter()
         {
-            waveTime -= Time.deltaTime;
+            waveCounter++;
+            wave.text = "Wave " + waveCounter;
+            SetTimer();
+        }
+
+        private static void SetTimer()
+        {
+            waveTime = 0;
+            waveTime = startTime + (waveCounter * timePerWave) + 0.2f;
             timer.text = "" + (int)waveTime;
         }
-    }
 
+        private void TimerTick()
+        {
+            if (waveTime <= 0)
+            {
+                TickUpWaveCounter();
+            }
+            else
+            {
+                waveTime -= Time.deltaTime;
+                timer.text = "" + (int)waveTime;
+            }
+        }
+
+        public static void StartTimer()
+        {
+            timerStarted = true;
+            TickUpWaveCounter();
+        }
+    }
 }

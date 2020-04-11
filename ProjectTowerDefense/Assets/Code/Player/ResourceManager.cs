@@ -2,9 +2,9 @@
 {
     public enum RESOURCE_TYPE
     {
-        gold,
-        wood,
-        meat
+        Gold,
+        Wood,
+        Meat
     }
 
     public class ResourceManager
@@ -19,9 +19,9 @@
 
         public ResourceManager()
         {
-            goldResource = new Resource(RESOURCE_TYPE.gold, startResources);
-            woodResource = new Resource(RESOURCE_TYPE.wood, startResources);
-            meatResource = new Resource(RESOURCE_TYPE.meat, startResources);
+            goldResource = new Resource(RESOURCE_TYPE.Gold, startResources);
+            woodResource = new Resource(RESOURCE_TYPE.Wood, startResources);
+            meatResource = new Resource(RESOURCE_TYPE.Meat, startResources);
         }
 
         public void AddResource(Resource _res, int _count)
@@ -32,6 +32,26 @@
         public void SubstractResource(Resource _res, int _count)
         {
             _res.SubstractResourcesToCount(_count);
+        }
+
+        public Resource GetResourceByResourceType(RESOURCE_TYPE _resType)
+        {
+            Resource res;
+
+            switch (_resType)
+            {
+                case RESOURCE_TYPE.Gold:
+                    res = goldResource;
+                    return res;
+                case RESOURCE_TYPE.Wood:
+                    res = woodResource;
+                    return res;
+                case RESOURCE_TYPE.Meat:
+                    res = meatResource;
+                    return res;
+                default:
+                    return null;
+            }
         }
 
     }

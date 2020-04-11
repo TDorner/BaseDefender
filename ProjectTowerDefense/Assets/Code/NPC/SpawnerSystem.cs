@@ -8,7 +8,7 @@ public class SpawnerSystem : ComponentSystem
     private int spawner;
     private Unity.Mathematics.Random random;
 
-    protected override void OnCreate()
+    /*protected override void OnCreate()
     {
         // Connection zu IComponentData fetchen
         spawner = EntityManager.GetComponentData<EntityTest>(EntityManager.).spawnNumber;
@@ -29,7 +29,7 @@ public class SpawnerSystem : ComponentSystem
                     );
             });
         }
-    }
+    }*/
 
     protected override void OnUpdate()
     {

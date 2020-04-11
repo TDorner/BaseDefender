@@ -7,6 +7,8 @@ TagManager:
   - TileMap
   - BuildingHolder
   - EnemyHolder
+  - BuildingSelection
+  - BuildingManager
   layers:
   - Default
   - TransparentFX
