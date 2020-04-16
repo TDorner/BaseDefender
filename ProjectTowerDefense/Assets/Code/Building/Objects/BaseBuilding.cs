@@ -19,33 +19,26 @@ namespace Building
         public int buildCostWood;
         public int buildCostMeat;
 
+        public int posX;
+        public int posY;
+
         [Header("Other")]
-        private PlayerHandler playerHandler;
-        private CreateTileMap cTM;
+        private BuildingManager manager;
 
         private void Awake()
         {
-            playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
-            cTM = GameObject.FindGameObjectWithTag("TileMap").GetComponent<CreateTileMap>();
+            manager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         }
 
         private void Start()
         {
-            SubstractCosts();
+            
         }
 
-        private void SubstractCosts()
-        {
-            playerHandler.resourceManager.SubstractResource(playerHandler.resourceManager.goldResource, buildCostGold);
-            playerHandler.resourceManager.SubstractResource(playerHandler.resourceManager.woodResource, buildCostWood);
-            playerHandler.resourceManager.SubstractResource(playerHandler.resourceManager.meatResource, buildCostMeat);
-
-            Debug.Log("Resources Taken");
-        }
-
-        public void OccupyTiles(int _x, int _y)
+        private void GetPosition()
         {
 
         }
+
     }
 }

@@ -3,13 +3,12 @@
     using UnityEngine;
     using UnityEngine.EventSystems;
     using Map;
-    using Building.Placement;
+    using Building;
     public class MouseInput : MonoBehaviour
     {
         GameObject tileMap;
         CreateTileMap createTileMap;
-        BuildingPlacement buildingPlacement;
-        BuildingSelector buildingSelector;
+        BuildingManager buildingManager;
 
         Vector3 currentTileCoord;
         public Transform selectionCube;
@@ -20,8 +19,7 @@
         {
             tileMap = GameObject.FindGameObjectWithTag("TileMap");
             createTileMap = tileMap.GetComponent<CreateTileMap>();
-            buildingPlacement = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingPlacement>();
-            buildingSelector = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingSelector>();
+            buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         }
 
         void Update()
@@ -30,7 +28,7 @@
 
             if (Input.GetMouseButtonDown(1))
             {
-                RemoveSelected();
+                buildingManager.RemoveSelectedBuilding();
             }
         }
 
@@ -58,8 +56,8 @@
                     selectedTile.x = x;
                     selectedTile.z = z;
                     Debug.Log("Tile: " + x + ", " + z);
+                    buildingManager.PlaceBuilding(selectedTile);
 
-                    buildingPlacement.PlaceBuilding();
                 }
                 else
                 {
@@ -67,12 +65,6 @@
                 }
             }
         }
-
-        private void RemoveSelected()
-        {
-            buildingSelector.RemoveSelectedPrefab();
-        }
-
 
     }
 }

@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &139224659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8027796133550704587, guid: a6fddfa0d3a2abe49a0440cac222f594,
+    type: 3}
+  m_PrefabInstance: {fileID: 1124450127339462938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1043127034
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +368,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1907238827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1267581446294337999, guid: a6fddfa0d3a2abe49a0440cac222f594,
+    type: 3}
+  m_PrefabInstance: {fileID: 1124450127339462938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2134357667
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +531,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1240694062266675704, guid: a6fddfa0d3a2abe49a0440cac222f594,
+        type: 3}
+      propertyPath: wave
+      value: 
+      objectReference: {fileID: 139224659}
+    - target: {fileID: 1240694062266675704, guid: a6fddfa0d3a2abe49a0440cac222f594,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1907238827}
+    - target: {fileID: 1240694062266675704, guid: a6fddfa0d3a2abe49a0440cac222f594,
+        type: 3}
+      propertyPath: timePerWave
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1324635205684170223, guid: a6fddfa0d3a2abe49a0440cac222f594,
         type: 3}
       propertyPath: selectionCube
@@ -572,7 +611,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a6fddfa0d3a2abe49a0440cac222f594, type: 3}
 --- !u!1001 &5349172885721228190
 PrefabInstance:
@@ -663,7 +704,7 @@ PrefabInstance:
     - target: {fileID: 7817987773095568029, guid: 0182929dfe7bb484c847f63ef3d638f3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7817987773095568029, guid: 0182929dfe7bb484c847f63ef3d638f3,
         type: 3}

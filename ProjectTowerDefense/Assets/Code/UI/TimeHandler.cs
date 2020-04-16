@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
     public class TimeHandler : MonoBehaviour
     {
-        public static Text timer;
-        public static Text wave;
+        public Text timer;
+        public Text wave;
 
-        public static int waveCounter;
-        public static int timePerWave;
-        public static int startTime;
+        public int waveCounter;
+        public int timePerWave;
+        public int startTime;
 
-        public static float waveTime;
+        public float waveTime;
 
-        public static bool timerStarted = false;
+        public bool timerStarted = false;
 
         void Update()
         {
@@ -26,14 +24,14 @@ namespace UI
             }
         }
 
-        private static void TickUpWaveCounter()
+        private void TickUpWaveCounter()
         {
             waveCounter++;
             wave.text = "Wave " + waveCounter;
             SetTimer();
         }
 
-        private static void SetTimer()
+        private void SetTimer()
         {
             waveTime = 0;
             waveTime = startTime + (waveCounter * timePerWave) + 0.2f;
@@ -53,7 +51,7 @@ namespace UI
             }
         }
 
-        public static void StartTimer()
+        public void StartTimer()
         {
             timerStarted = true;
             TickUpWaveCounter();

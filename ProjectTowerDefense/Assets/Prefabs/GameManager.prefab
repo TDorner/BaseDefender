@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2133037469}
-  - component: {fileID: 2133037471}
-  - component: {fileID: 2133037470}
+  - component: {fileID: 4618381391344473498}
   m_Layer: 0
   m_Name: BuildingManager
   m_TagString: BuildingManager
@@ -32,7 +31,7 @@ Transform:
   m_Father: {fileID: 5190261069266150066}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2133037471
+--- !u!114 &4618381391344473498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,23 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2133037468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e014f36f9beebe499a7a35b36446566, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f715f55c08474342a7c283e80c23ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2133037470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133037468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4505e29d9e58444ba876e2d9b510ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedPrefab: {fileID: 5717451822056936105, guid: ed5f883e44a1d9e4682f7001ca9b7246,
-    type: 3}
+  buildingSelected: 0
+  building: {fileID: 0}
 --- !u!1 &1124450126549866044
 GameObject:
   m_ObjectHideFlags: 0

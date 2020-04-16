@@ -40,8 +40,8 @@ namespace Map
 
         public void CreateMap()
         {
-            CreateMesh();
             CreateData();
+            CreateMesh();
             CreateTexture();
         }
 

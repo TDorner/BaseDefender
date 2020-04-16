@@ -5,14 +5,11 @@ namespace Building
 {
     public class Headquarter : MonoBehaviour
     {
+        TimeHandler timeHandler;
         private void Awake()
         {
-            StartTimer();
-        }
-
-        private void StartTimer()
-        {
-            TimeHandler.StartTimer();
+            timeHandler = GameObject.FindGameObjectWithTag("GameController").GetComponent<TimeHandler>();
+            timeHandler.StartTimer();
         }
     }
 }

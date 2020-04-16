@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Building;
 
 namespace Map
 {
@@ -9,7 +10,8 @@ namespace Map
             GRASSLAND,
             FIELD,
             MOUNTAIN,
-            WATER
+            WATER,
+            BUILDING
         }
 
         public enum TEXTURE_DISTRIBUTION
@@ -17,7 +19,8 @@ namespace Map
             GRASSLAND = 12,
             FIELD = 8,
             MOUNTAIN = 2,
-            WATER = 3
+            WATER = 3,
+            BUILDING = 0
         }
 
         public enum CONTENT_DATA
@@ -29,6 +32,7 @@ namespace Map
 
         public CONTENT_DATA contentData;
         public TEXTURE_DATA textureData;
+        public BaseBuilding baseBuilding = null;
 
 
         public TileData()
@@ -39,7 +43,7 @@ namespace Map
         private void CreateTile()
         {
             textureData = RandomTextureValue();
-
+            
             if(textureData == TEXTURE_DATA.MOUNTAIN || textureData == TEXTURE_DATA.WATER)
             {
                 contentData = CONTENT_DATA.TERRAIN;
@@ -64,16 +68,29 @@ namespace Map
             return this;
         }
 
+        public void SetBuilding(BaseBuilding _building)
+        {
+            baseBuilding = _building;
+            SetTileContent(CONTENT_DATA.BUILDING);
+            SetTileTexture(TEXTURE_DATA.BUILDING);
+        }
+
+        public BaseBuilding GetBuilding()
+        {
+            return baseBuilding;
+        }
+
         public void ShowData()
         {
             Debug.Log("ContentData: " + contentData);
             Debug.Log("TextureData: " + textureData);
+            Debug.Log("Building: " + baseBuilding);
         }
 
         public int CheckTextureData()
         {
             TEXTURE_DATA tData = textureData;
-            int num = 0;
+            int num;
             switch (tData)
             {
                 case TileData.TEXTURE_DATA.GRASSLAND:
@@ -88,12 +105,16 @@ namespace Map
                 case TileData.TEXTURE_DATA.WATER:
                     num = 3;
                     break;
+                case TileData.TEXTURE_DATA.BUILDING:
+                    num = 4;
+                    break;
                 default:
                     num = 0;
                     break;
             }
             return num;
         }
+
         // TODO improve RandomTextureValue()
         private TEXTURE_DATA RandomTextureValue()
         {
