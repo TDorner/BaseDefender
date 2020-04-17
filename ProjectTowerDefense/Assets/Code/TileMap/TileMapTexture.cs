@@ -5,15 +5,6 @@ namespace Map
 
     public class TileMapTexture
     {
-
-
-
-        public TileMapTexture()
-        {
-
-        }
-
-
         public Texture2D BuildTexture(int _height, int _width, int _tileResolution, Texture2D _terrainTiles, TileData[,] _tileDataHolder)
         {
             int texWidth = _width * _tileResolution;
@@ -57,9 +48,5 @@ namespace Map
             }
             return tiles;
         }
-
-
-
-
     }
 }
