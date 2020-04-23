@@ -58,6 +58,5 @@ namespace Building
             building = _gO.GetComponent<BaseBuilding>();
             buildingSelected = true;
         }
-
     }
 }

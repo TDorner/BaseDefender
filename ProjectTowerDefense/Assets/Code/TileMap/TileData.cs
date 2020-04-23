@@ -16,7 +16,7 @@ namespace Map
 
         public enum TEXTURE_DISTRIBUTION
         {
-            GRASSLAND = 12,
+            GRASSLAND = 200,
             FIELD = 8,
             MOUNTAIN = 2,
             WATER = 3,
